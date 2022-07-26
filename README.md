@@ -51,3 +51,33 @@ with your changes.
 If you are already in the hiring process, you may send it to 
  whoever is your contact at Intelie. If you wish to apply for a job at 
  Intelie, please send your solution to [trabalhe@intelie.com.br](mailto:trabalhe@intelie.com.br).
+
+
+## Wrote by vitor
+
+I using principles S.O.L.I.D to make this structure.
+In the first, I write dependenci use with various technologies using the same structure.
+
+Example: I just change TextFile class to another database with the same structure, and I don`t change nothing more in the code, Just change when I call the MainEvent class
+
+## Dependencies resolve
+```java
+public MainEvent( EventStore newEvent ) 
+        {
+        this.newEvent = newEvent;
+        }
+```
+I chose using constructor this way because, I begin using Postgres SQL or MySQL, I just change the way I call this function
+
+Example:
+```java
+public static void main(String[] args)  
+        {
+        MainEvent mainEvent = new MainEvent(new TextFile("eventFile")); 
+        // I just change this new TextFile to another class with implements EventStore interface
+        }
+```
+
+## why using menu to access file not http access
+
+I chose using menu to access because is easier testing the functions, but when I want to switch to http I just change the main to new Routes with access the MainEvent
